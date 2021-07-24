@@ -11,11 +11,10 @@ require('mix-tailwindcss');
  | file for the application as well as bundling up all the JS files.
  |
  */
-
 mix.disableNotifications();
 mix
     .js('resources/js/app.js', 'public/js')
-    .vue({ version: 3 });
+    .vue({version: 3});
 mix
     .sass('resources/sass/app.scss', 'public/css')
     .tailwind();
