@@ -1,0 +1,119 @@
+@charset "UTF-8";
+@import "~normalize.css";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/regular";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+@import "~@fortawesome/fontawesome-free/scss/brands";
+
+@tailwind base;
+@tailwind components;
+@tailwind screens;
+@tailwind utilities;
+
+.navbar {
+  @apply bg-gradient-to-t from-gray-400 to-gray-900 bg-opacity-60 py-2;
+
+  &-content {
+    @apply container px-4 mx-auto flex items-center;
+
+    .logo {
+      @apply flex justify-between items-center;
+
+      img {
+        @apply h-8 w-auto;
+      }
+    }
+  }
+
+  &-links {
+    @apply flex ml-auto mt-0 items-center;
+
+    .link {
+      @apply p-2 lg:px-4 md:mx-2 text-gray-200 rounded hover:bg-gray-200 hover:text-gray-700 transition-colors duration-300;
+    }
+  }
+}
+
+.client-form {
+  @apply bg-gradient-to-tl from-gray-300 from-gray-500 rounded shadow-2xl p-6 m-4 flex-shrink-0 relative;
+  width: 300px;
+
+  .overlay {
+    @apply /*hidden*/ absolute w-full h-full top-0 left-0 bg-gray-600 bg-opacity-75 flex justify-center items-center;
+  }
+
+  .field-group {
+    @apply flex flex-col mb-4;
+
+    label {
+      @apply font-bold text-gray-900;
+    }
+
+    .field {
+      @apply flex border bg-white text-gray-400 focus-within:text-gray-800;
+
+      i {
+        @apply my-auto border-r border-gray-600 flex justify-center items-center;
+        width: 40px;
+        height: 40px;
+      }
+
+      input {
+        @apply w-full py-2 px-3 border-0 outline-none;
+      }
+    }
+  }
+
+  input[type="submit"] {
+    @apply block bg-blue-400 hover:bg-blue-600 text-white uppercase mx-auto p-2.5 rounded;
+
+    &[disabled] {
+      @apply bg-gray-600 transition-colors duration-500;
+    }
+  }
+}
+
+.clients-list {
+  @apply flex flex-col w-full p-4;
+
+  .container {
+    @apply shadow border-b border-gray-200 overflow-x-auto;
+
+    .search {
+      @apply bg-gray-200 flex mb-2 text-gray-400 focus-within:text-gray-800 focus-within:border-black border border-transparent rounded transition-all;
+
+      i {
+        @apply my-auto mx-3;
+      }
+
+      input {
+        @apply w-full p-2 bg-transparent outline-none border-l border-gray-400 focus:border-black;
+      }
+    }
+
+    table {
+      @apply min-w-full divide-y divide-gray-200;
+
+      thead {
+        @apply bg-gradient-to-l from-gray-50 to-gray-200;
+
+        th {
+          @apply px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider;
+        }
+      }
+
+      tbody {
+        @apply bg-white divide-y divide-gray-200;
+
+        td {
+          @apply px-6 py-4 whitespace-nowrap text-gray-900;
+
+          &.action {
+            @apply text-right text-sm font-medium;
+          }
+        }
+      }
+    }
+  }
+}
