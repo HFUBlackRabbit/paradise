@@ -23,7 +23,8 @@ const store = createStore({
             await axios.post('/api/clients', data)
                 .then(r => {
                     this.commit('setClients', [...state.clients, r.data.data]);
-                    data.name = data.tel = data.dob = '';
+                    data.name = data.tel = '';
+                    data.dob = new Date('01.01.1990');
                 })
                 .catch(e => alert(e));
             this.commit('toggleForm', false)
