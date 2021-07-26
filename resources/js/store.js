@@ -20,7 +20,12 @@ const store = createStore({
     actions: {
         async submitForm({ commit, state }, data) {
             this.commit('toggleForm', true)
-            await axios.post('/api/clients', data)
+            let post = {
+                name: data.name,
+                tel: data.tel,
+                dob: data.dob.toLocaleDateString('ru-RU')
+            }
+            await axios.post('/api/clients', post)
                 .then(r => {
                     this.commit('setClients', [...state.clients, r.data.data]);
                     data.name = data.tel = '';

@@ -39,7 +39,7 @@
           <label for="dob">Дата рождения</label>
           <div class="field">
             <i class="fas fa-calendar-alt"></i>
-            <v-date-picker v-model="form.dob">
+            <v-date-picker v-model="form.dob" timezone="Europe/Moscow">
               <template v-slot="{ inputValue, inputEvents }">
                 <input
                     :value="inputValue"
@@ -64,7 +64,7 @@ export default {
       form: {
         name: '',
         tel: '',
-        dob: new Date('01.01.1990')
+        dob: new Date(1990, 0, 1)
       },
       phoneMask: 'ru',
       masks: {

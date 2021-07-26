@@ -84,7 +84,7 @@ export default {
           search = this.search.toLowerCase().trim();
 
         return this.search.length > 0 ? clients.filter(client => {
-          return client.name.toLowerCase().includes(search) || client.tel.includes(search);
+          return client.name.toLowerCase().includes(search) || client.tel.replace(/\D+/g, '').includes(search);
         }) : clients;
     },
     orderedClients() {
